@@ -34,14 +34,20 @@ body {
 }
 
 .container-100vw {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
 }
 
 .input-container {
   position: relative;
-  margin: 25px auto;
-  width: 350px;
+  margin: 30px auto;
+  width: 240px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-container a {
+  text-decoration: none;
 }
 
 .input-container input[type="text"] {
@@ -88,4 +94,12 @@ body {
 .input-container input[type="text"]:focus ~ .underline,
 .input-container input[type="text"]:valid ~ .underline {
   transform: scaleX(1);
+}
+
+.btn-primary {
+  width: 200px;
+  height: 40px;
+  background-color: $worn-yellow;
+  border: 0;
+  border-radius: 5px;
 }
