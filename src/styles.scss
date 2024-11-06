@@ -8,6 +8,10 @@ $worn-yellow: #d4af37; // Highlights, buttons, and accents
 $metallic-gray: #b0b0b0; // Borders and icon details
 $white: #ffffff; // Text and high-contrast elements
 $rustic-brown: #7c4a24; // Details
+$disabled-text: #8d8d8d;
+
+$russo: "Russo One", sans-serif;
+$exo: "Exo 2", sans-serif;
 
 * {
   margin: 0;
@@ -21,14 +25,30 @@ body {
   background-color: $black-matte;
 }
 
+a {
+  font-family: $exo;
+  text-decoration: underline;
+  color: $worn-yellow;
+  cursor: pointer;
+}
+
 .title {
-  font-family: "Russo One", sans-serif;
+  font-family: $russo;
   font-weight: 400;
   font-style: normal;
 }
 
+.subtitle {
+  font-family: $exo;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 15px;
+  text-align: center;
+  color: $white;
+}
+
 .content-text {
-  font-family: "Exo 2", sans-serif;
+  font-family: $exo;
   font-optical-sizing: auto;
   font-style: normal;
 }
@@ -44,10 +64,18 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  span {
+    font-family: $exo;
+  }
 }
 
-.input-container a {
-  text-decoration: none;
+.button-container {
+  position: relative;
+  margin: 10px auto;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .input-container input[type="text"] {
@@ -58,8 +86,35 @@ body {
   padding: 5px 0;
   background-color: transparent;
   outline: none;
-  font-family: "Exo 2", sans-serif;
-  font-size: 15px;
+  font-family: $exo;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.input-container input[type="email"] {
+  font-size: 20px;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid $metallic-gray;
+  padding: 5px 0;
+  background-color: transparent;
+  outline: none;
+  font-family: $exo;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.input-container input[type="password"] {
+  font-size: 20px;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid $metallic-gray;
+  padding: 5px 0;
+  background-color: transparent;
+  outline: none;
+  font-family: $exo;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .input-container .label {
@@ -69,14 +124,31 @@ body {
   color: $white;
   transition: all 0.3s ease;
   pointer-events: none;
-  font-family: "Exo 2", sans-serif;
+  font-family: $exo;
   font-size: 15px;
 }
 
 .input-container input[type="text"]:focus ~ .label,
 .input-container input[type="text"]:valid ~ .label {
   top: -20px;
-  font-size: 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: $metallic-gray;
+}
+
+.input-container input[type="email"]:focus ~ .label,
+.input-container input[type="email"]:valid ~ .label {
+  top: -20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: $metallic-gray;
+}
+
+.input-container input[type="password"]:focus ~ .label,
+.input-container input[type="password"]:valid ~ .label {
+  top: -20px;
+  font-size: 0.9rem;
+  font-weight: 600;
   color: $metallic-gray;
 }
 
@@ -96,10 +168,91 @@ body {
   transform: scaleX(1);
 }
 
-.btn-primary {
-  width: 200px;
-  height: 40px;
-  background-color: $worn-yellow;
+.input-container input[type="email"]:focus ~ .underline,
+.input-container input[type="email"]:valid ~ .underline {
+  transform: scaleX(1);
+}
+
+.input-container input[type="password"]:focus ~ .underline,
+.input-container input[type="password"]:valid ~ .underline {
+  transform: scaleX(1);
+}
+
+.input-container input[type="checkbox"]:focus ~ .checkbox,
+.input-container input[type="checkbox"]:valid ~ .checkbox {
+  top: -20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1rem;
+  font-family: $exo;
+  color: $white;
+}
+
+.text-derecoration-line {
+  text-decoration-line: underline;
+  color: $metallic-gray;
+  font-weight: 600;
+}
+
+button {
+  margin: 5px;
+  width: auto;
+  text-align: right;
+  background-color: transparent;
   border: 0;
   border-radius: 5px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: $exo;
+  cursor: pointer;
+  span {
+    svg path {
+      fill: $black-matte;
+    }
+    color: $black-matte;
+  }
+}
+
+button:disabled {
+  background-color: $metallic-gray;
+  cursor: default;
+  span {
+    svg path {
+      fill: $disabled-text !important;
+    }
+    color: $disabled-text !important;
+  }
+}
+
+.btn {
+  margin: 5px;
+  width: 264px;
+  height: 48px;
+  text-align: right;
+  background-color: transparent;
+  border: 0;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: $exo;
+  cursor: pointer;
+  span {
+    color: $black-matte;
+  }
+}
+
+.btn-primary {
+  background-color: $worn-yellow;
+}
+
+.btn-secondary {
+  transition: all 200ms;
+  background-color: $metallic-gray;
+  color: $white;
+  border-color: $metallic-gray;
+}
+
+.btn-secondary:hover {
+  background-color: $metallic-gray;
+  border-color: $metallic-gray;
 }

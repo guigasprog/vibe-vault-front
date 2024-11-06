@@ -3,26 +3,203 @@
     <h1 class="title">Vibe Vault</h1>
     <h3 class="title sub-title">Store Website</h3>
   </header>
-  <div class="card">
-    <h1 class="title">Login</h1>
-    <div class="form">
-      <div class="input-container">
-        <input type="text" id="input" required="" />
-        <label for="input" class="label">Email</label>
-        <div class="underline"></div>
+  <div
+    class="content"
+    [ngStyle]="{
+      transform:
+        windowWidth <= 500
+          ? reg
+            ? 'rotateX(180deg)'
+            : 'rotateX(0deg)'
+          : reg
+          ? 'rotateY(180deg)'
+          : 'rotateY(0deg)'
+    }"
+  >
+    <div class="loginpage">
+      <div class="card">
+        <h1 class="title">ACESSE SUA CONTA</h1>
+        <div class="form">
+          <div class="input-container">
+            <input type="email" id="email" required="" />
+            <label for="email" class="label">Email</label>
+            <div class="underline"></div>
+          </div>
+          <div class="input-container">
+            <input type="password" id="senha" required="" />
+            <label for="senha" class="label">Senha</label>
+            <div class="underline"></div>
+          </div>
+          <div class="input-container">
+            <span
+              style="
+                width: 100%;
+                font-size: 0.8rem;
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                gap: 5px;
+              "
+            >
+              <input
+                class="checkmark"
+                type="checkbox"
+                name="lembrar-se"
+                id="lembrar-se"
+              />
+              <label class="checkbox" for="lembrar-se">Lembrar-se de mim</label>
+            </span>
+          </div>
+          <div
+            class="button-container"
+            style="display: flex; flex-direction: column"
+          >
+            <button class="btn btn-primary content-text">
+              <span
+                style="
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                "
+              >
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 22 22"
+                  fill="none"
+                  xmlns="https://www.w3.org/2000/svg"
+                  class="IconLoginButton"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M20.625 22C20.9974 22 21.3197 21.8675 21.5918 21.6025C21.8639 21.3376 22 21.0117 22 20.625L22 1.375C22 0.988283 21.8639 0.662441 21.5918 0.397464C21.3197 0.132489 20.9974 3.08186e-06 20.625 3.04931e-06L8.9375 2.02755e-06C8.55078 1.99375e-06 8.22494 0.132488 7.95996 0.397463C7.69499 0.662439 7.5625 0.988281 7.5625 1.375L7.5625 7.58399L8.9375 7.58399L8.9375 2.21289C8.9375 1.98372 9.01986 1.78679 9.18457 1.62207C9.34929 1.45736 9.54622 1.375 9.77539 1.375L19.7871 1.375C20.0163 1.375 20.2096 1.45736 20.3672 1.62207C20.5247 1.78679 20.6035 1.98373 20.6035 2.21289L20.582 19.7871C20.582 20.0163 20.5033 20.2132 20.3457 20.3779C20.1881 20.5426 19.9948 20.625 19.7656 20.625L9.77539 20.625C9.54622 20.625 9.34928 20.5426 9.18457 20.3779C9.01986 20.2132 8.9375 20.0163 8.9375 19.7871L8.9375 14.4375L7.5625 14.4375L7.5625 20.625C7.5625 21.0117 7.69499 21.3376 7.95996 21.6025C8.22494 21.8675 8.55078 22 8.9375 22L20.625 22Z"
+                    fill="#1c1c1c"
+                  ></path>
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M12.5898 10.3125L10.0547 7.79883C9.92578 7.6556 9.86133 7.49089 9.86133 7.30469C9.86133 7.11849 9.92578 6.95378 10.0547 6.81055C10.1263 6.75326 10.2051 6.70671 10.291 6.6709C10.377 6.63509 10.4629 6.61719 10.5488 6.61719C10.6348 6.61719 10.7207 6.63509 10.8066 6.6709C10.8926 6.70671 10.9714 6.75326 11.043 6.81055L15.1035 10.9785L11.043 15.1465C10.8997 15.2897 10.735 15.3613 10.5488 15.3613C10.3626 15.3613 10.1979 15.2897 10.0547 15.1465C9.92578 15.0176 9.86133 14.8564 9.86133 14.6631C9.86133 14.4697 9.92578 14.3086 10.0547 14.1797L12.5469 11.6875L0.687503 11.6875C0.48698 11.6875 0.322269 11.623 0.193362 11.4941C0.0644551 11.3652 2.9986e-06 11.2005 3.05119e-06 11C3.10002e-06 10.8138 0.0644553 10.6527 0.193363 10.5166C0.322269 10.3805 0.486981 10.3125 0.687503 10.3125L12.5898 10.3125Z"
+                    fill="#1c1c1c"
+                  ></path>
+                </svg>
+                <span style="margin-left: 8px">ENTRAR</span>
+              </span>
+            </button>
+            <span style="width: 264px; text-align: end">
+              <button
+                (click)="isDialogVisible = true"
+                class="text-derecoration-line"
+                style="margin-top: 5px; font-size: 0.8rem"
+              >
+                Esqueceu a senha?
+              </button>
+            </span>
+          </div>
+        </div>
       </div>
-      <div class="input-container">
-        <input type="text" id="input" required="" />
-        <label for="input" class="label">Senha</label>
-        <div class="underline"></div>
-      </div>
-      <div class="input-container">
-        <a href="">Não possuo conta<br />Registrar-se</a>
-      </div>
-      <div class="input-container">
-        <button class="btn-primary content-text">Logar</button>
+      <div class="vertical-line horizontal-line"><span>OU</span></div>
+      <div class="card">
+        <h1 class="subtitle">Quero acessar com minhas redes sociais</h1>
+        <div class="form">
+          <div
+            class="button-container"
+            style="display: flex; flex-direction: column"
+          >
+            <button class="btn btn-primary content-text" disabled>
+              <span
+                style="
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                "
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 22 22"
+                  fill="none"
+                  xmlns="https://www.w3.org/2000/svg"
+                  class="IconGoogle"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M15.5636 5.89108C14.7529 5.14548 13.3311 4.25327 11.2234 4.25327C8.25644 4.25327 5.73807 6.17041 4.82647 8.82072L4.82662 8.82422C4.60213 9.50865 4.46499 10.2419 4.46499 10.9998C4.46499 11.7575 4.60213 12.4909 4.83909 13.1753L4.8379 13.1762C5.73616 15.8281 8.25533 17.7466 11.2234 17.7466C12.8946 17.7466 14.1668 17.2944 15.1147 16.6466L15.1153 16.6471L15.1154 16.6465C16.6121 15.6199 17.2856 14.0922 17.4103 13.0777H11.2242V8.99558H21.763C21.9251 9.68001 22 10.34 22 11.2444C22 14.5933 20.7777 17.4166 18.6575 19.3355L18.6565 19.3354L18.6567 19.3356C16.7983 21.0222 14.2541 22 11.2234 22C6.83323 22 3.04172 19.5311 1.19588 15.9378L1.19653 15.936C0.436238 14.4452 0 12.7714 0 10.9998C0 9.22791 0.436356 7.55375 1.19684 6.06285L1.19588 6.06212C3.04172 2.46885 6.83322 0 11.2234 0C14.2541 0 16.7859 1.08777 18.7315 2.85998L15.5636 5.89108Z"
+                  ></path>
+                </svg>
+                <span style="margin-left: 8px">Google</span>
+              </span>
+            </button>
+          </div>
+          <div
+            class="button-container"
+            style="display: flex; flex-direction: column"
+          >
+            <button class="btn btn-primary content-text" disabled>
+              <span
+                style="
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                "
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 22 22"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="IconApple"
+                >
+                  <path
+                    d="M17.1609 11.6262C17.1504 9.82294 17.9608 8.46385 19.5974 7.46173C18.6821 6.13967 17.2972 5.41253 15.4718 5.27239C13.7434 5.1349 11.8523 6.28774 11.1599 6.28774C10.4281 6.28774 8.75481 5.31999 7.43816 5.31999C4.72095 5.36229 1.83325 7.50403 1.83325 11.8616C1.83325 13.1492 2.06668 14.4792 2.53354 15.8489C3.15776 17.6522 5.40812 22.0705 7.75552 21.9991C8.98299 21.9701 9.85113 21.1213 11.4484 21.1213C12.9985 21.1213 13.8011 21.9991 15.1702 21.9991C17.5385 21.9648 19.5738 17.9483 20.1666 16.1398C16.9904 14.63 17.1609 11.7188 17.1609 11.6262V11.6262ZM14.4043 3.56164C15.7341 1.96988 15.6134 0.520893 15.5741 0C14.3991 0.0687473 13.0405 0.806459 12.2667 1.7134C11.4143 2.68643 10.9134 3.88951 11.0209 5.24595C12.2903 5.34378 13.4496 4.68539 14.4043 3.56164V3.56164Z"
+                  ></path>
+                </svg>
+                <span style="margin-left: 8px">Apple</span>
+              </span>
+            </button>
+          </div>
+          <div class="input-container" style="margin-top: 0">
+            <span style="width: 264px; text-align: center; font-size: 0.9rem">
+              Novo na Vault? <a (click)="registerPageVisible()">CADASTRAR-SE</a>
+            </span>
+          </div>
+        </div>
+        <div class="input-container" style="margin-top: 0">
+          <span class="content-text" style="font-size: 0.9rem">
+            Encontrou algum bug? <a>CONTATE-NOS</a></span
+          >
+        </div>
       </div>
     </div>
   </div>
   <footer></footer>
 </div>
+
+<vv-dialog header="ESQUECEU SUA SENHA DE ACESSO?" [(visible)]="isDialogVisible">
+  <div class="dialog-content">
+    <span>Informe seu número do CPF ou CNPJ de cadastro:</span>
+    <div class="input-container" style="width: 100%">
+      <input type="text" id="cpfOrCnpj" required="" />
+      <label for="cpfOrCnpj" class="label">CPF ou CNPJ</label>
+      <div class="underline"></div>
+    </div>
+  </div>
+
+  <div
+    footer
+    style="
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    "
+  >
+    <button class="btn btn-primary content-text" (click)="closeDialog()">
+      <span style="display: flex; justify-content: center; align-items: center"
+        >ENVIAR</span
+      >
+    </button>
+  </div>
+</vv-dialog>
