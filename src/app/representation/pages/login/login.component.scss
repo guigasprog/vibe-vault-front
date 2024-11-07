@@ -7,57 +7,97 @@
   flex-direction: column;
 
   header {
-    width: 100%;
+    display: flex;
+    width: 80%;
     padding: 1% 0;
-    text-align: center;
-    .sub-title {
-      font-size: 13px;
+
+    .logo {
+      width: 15%;
+      text-align: center;
+      .sub-title {
+        font-size: 13px;
+      }
+    }
+
+    .vazio {
+      width: 60%;
+    }
+
+    .bloco {
+      width: 25%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      #blocoAvatarUsuario {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 100%;
+        border: 3px solid $dark-gray;
+      }
     }
   }
   .content {
+    margin-top: 5%;
     width: 100%;
     height: 23vw;
     display: flex;
     justify-content: center;
-    perspective: 1000px;
-    backdrop-filter: blur(3px);
-    transition: 1000ms;
-    .registerpage {
-      margin: -25px 0 0 -50px;
-      transform: rotateY(180deg);
+    .page {
+      width: 100%;
+      display: flex;
+      height: auto;
+      align-items: center;
+      justify-content: center;
     }
     .loginpage {
+      z-index: 0;
       position: relative;
-      width: 100%;
-      height: 100%;
-      margin: -25px 0 0 -25px;
-      padding: 25px 0;
-      background-color: transparent;
-      transition: transform 0.8s;
-      transform-style: preserve-3d;
-      display: flex;
-      justify-content: center;
       .card {
+        position: absolute;
         width: 23vw;
         height: 100%;
         margin: 3%;
-        padding: 1%;
+        padding: 24px 16px 16px 16px;
         background-color: $dark-gray;
         border-radius: 5px;
+        transition: all 300ms;
         .title {
           text-align: center;
           font-size: 20px;
         }
       }
+      #card-login {
+        left: 250px;
+      }
+      #card-acesso-redes-sociais {
+        right: 250px;
+      }
       .vertical-line {
+        position: relative;
         width: 1px;
         height: 100%;
         margin: 3%;
         padding: 1% 0;
-        border-left: 1px solid $white;
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
+        .line {
+          position: absolute;
+          width: 1px;
+          height: 40%;
+          border-left: 1px solid $white;
+          transition: all 300ms;
+        }
+        #line-1 {
+          top: 0;
+        }
+        #line-2 {
+          top: 60%;
+        }
         span {
           background-color: $black-matte;
           margin-left: -1px;
@@ -66,6 +106,38 @@
           justify-content: center;
           align-items: center;
           font-family: $exo;
+          transition: all 300ms;
+        }
+      }
+    }
+    .registerpage {
+      z-index: -1000;
+      display: none;
+      .card {
+        overflow: hidden;
+        scale: 0;
+        width: 46vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 3%;
+        padding: 24px 16px 16px 16px;
+        background-color: $dark-gray;
+        border-radius: 5px;
+        transition: all 600ms;
+        border: 0;
+        .title {
+          text-align: center;
+          font-size: 20px;
+          margin: 0 0 15px 0;
+        }
+        .form {
+          display: flex;
+          flex-wrap: wrap;
+          .input-container {
+            margin: 15px auto;
+          }
         }
       }
     }
@@ -74,13 +146,22 @@
   @media (max-width: 500px) {
     header {
       width: 100%;
-      text-align: center;
       padding: 5% 0;
-      .title {
-        font-size: 48px;
+      .logo {
+        width: 100%;
+        text-align: center;
+        .title {
+          font-size: 48px;
+        }
+        .sub-title {
+          font-size: 20px;
+        }
       }
-      .sub-title {
-        font-size: 20px;
+      .vazio {
+        width: 0;
+      }
+      .bloco {
+        display: none;
       }
     }
     .content {
@@ -90,44 +171,29 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      overflow-y: auto;
-      perspective: 1000px;
-      backdrop-filter: blur(3px);
-      transition: 500ms;
-      .loginpage,
-      .registerpage {
-        position: absolute;
-        margin: -25px 0 0 0px;
-        width: 100%;
-        height: 100%;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        overflow-y: auto;
-      }
-      .registerpage {
-        margin: -25px 0 0 -50px;
-        transform: rotateX(180deg);
-      }
-      .loginpage {
-        position: relative;
+      overflow: hidden;
+      .page {
         width: 100%;
         height: 100%;
         background-color: transparent;
-        transition: transform 0.8s;
-        transform-style: preserve-3d;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+      }
+      .loginpage {
         .card {
+          overflow: hidden;
+          position: relative;
           width: 90%;
           height: 40vh;
           margin-bottom: 5%;
-          padding: 5% 0;
+          padding: 32px 0px 0px 0px;
           background-color: $dark-gray;
           display: flex;
           align-items: center;
           flex-direction: column;
+          transition: all 300ms;
           .title {
             font-size: 24px;
           }
@@ -136,14 +202,68 @@
             height: 100%;
           }
         }
+        #card-login {
+          left: 0;
+        }
+        #card-acesso-redes-sociais {
+          right: 0;
+        }
         .horizontal-line {
+          position: relative;
           width: 90%;
           height: 1px;
           border: 0;
-          border-top: 1px solid $white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: row;
+          margin-bottom: 5%;
+          .line {
+            position: absolute;
+            width: 40%;
+            height: 1px;
+            border: 0;
+            border-top: 1px solid $white;
+            transition: all 300ms;
+          }
+          #line-1 {
+            left: 10px;
+            top: 5px;
+          }
+          #line-2 {
+            right: 10px;
+            top: 5px;
+          }
           span {
-            margin-top: -10px;
+            margin-top: -3px;
             width: 60px;
+          }
+        }
+      }
+      .registerpage {
+        z-index: -1000;
+        display: none;
+        .card {
+          overflow: hidden;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          scale: 0;
+          width: 90%;
+          padding: 32px 0px 0px 0px;
+          background-color: $dark-gray;
+          border-radius: 5px;
+          transition: all 600ms;
+          .title {
+            text-align: center;
+            font-size: 20px;
+          }
+          .form {
+            margin-bottom: 5%;
+            .input-container {
+              margin: 3% auto;
+            }
           }
         }
       }

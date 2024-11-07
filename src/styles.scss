@@ -23,6 +23,16 @@ body {
   width: 100%;
   height: 100%;
   background-color: $black-matte;
+  overflow: hidden;
+}
+
+@media (max-width: 500px) {
+  body {
+    width: 100%;
+    height: 100%;
+    background-color: $black-matte;
+    overflow-y: visible !important;
+  }
 }
 
 a {
@@ -45,6 +55,16 @@ a {
   font-size: 15px;
   text-align: center;
   color: $white;
+}
+
+span {
+  font-family: $exo;
+}
+
+.strong {
+  font-family: $russo;
+  color: $metallic-gray;
+  font-weight: 400;
 }
 
 .content-text {
@@ -78,33 +98,7 @@ a {
   align-items: center;
 }
 
-.input-container input[type="text"] {
-  font-size: 20px;
-  width: 100%;
-  border: none;
-  border-bottom: 2px solid $metallic-gray;
-  padding: 5px 0;
-  background-color: transparent;
-  outline: none;
-  font-family: $exo;
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-.input-container input[type="email"] {
-  font-size: 20px;
-  width: 100%;
-  border: none;
-  border-bottom: 2px solid $metallic-gray;
-  padding: 5px 0;
-  background-color: transparent;
-  outline: none;
-  font-family: $exo;
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-.input-container input[type="password"] {
+.input-container input {
   font-size: 20px;
   width: 100%;
   border: none;
@@ -128,30 +122,22 @@ a {
   font-size: 15px;
 }
 
-.input-container input[type="text"]:focus ~ .label,
-.input-container input[type="text"]:valid ~ .label {
+.input-container input[type="date"] ~ .label {
+  top: -20px !important;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Movimentação da label no estado de foco ou de campo preenchido */
+.input-container input:focus ~ .label,
+.input-container input:valid ~ .label {
   top: -20px;
   font-size: 0.9rem;
   font-weight: 600;
   color: $metallic-gray;
 }
 
-.input-container input[type="email"]:focus ~ .label,
-.input-container input[type="email"]:valid ~ .label {
-  top: -20px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: $metallic-gray;
-}
-
-.input-container input[type="password"]:focus ~ .label,
-.input-container input[type="password"]:valid ~ .label {
-  top: -20px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: $metallic-gray;
-}
-
+/* Estilização da underline animada */
 .input-container .underline {
   position: absolute;
   bottom: 0;
@@ -163,27 +149,19 @@ a {
   transition: all 0.3s ease;
 }
 
-.input-container input[type="text"]:focus ~ .underline,
-.input-container input[type="text"]:valid ~ .underline {
+/* Animação da underline no estado de foco ou de campo preenchido */
+.input-container input:focus ~ .underline,
+.input-container input:valid ~ .underline {
   transform: scaleX(1);
 }
 
-.input-container input[type="email"]:focus ~ .underline,
-.input-container input[type="email"]:valid ~ .underline {
-  transform: scaleX(1);
-}
-
-.input-container input[type="password"]:focus ~ .underline,
-.input-container input[type="password"]:valid ~ .underline {
-  transform: scaleX(1);
-}
-
+/* Estilização específica para checkbox, se necessário */
 .input-container input[type="checkbox"]:focus ~ .checkbox,
 .input-container input[type="checkbox"]:valid ~ .checkbox {
+  width: 1300px;
   top: -20px;
   font-size: 0.8rem;
   font-weight: 600;
-  line-height: 1rem;
   font-family: $exo;
   color: $white;
 }

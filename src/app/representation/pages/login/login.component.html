@@ -1,32 +1,67 @@
 <div class="container-100vw">
   <header>
-    <h1 class="title">Vibe Vault</h1>
-    <h3 class="title sub-title">Store Website</h3>
+    <div class="logo">
+      <h1 class="title">Vibe Vault</h1>
+      <h3 class="title sub-title">Store Website</h3>
+    </div>
+    <div class="vazio"></div>
+    <div class="bloco">
+      <figure id="blocoAvatarUsuario">
+        <svg
+          width="28"
+          height="28"
+          viewBox="0 0 28 28"
+          fill="none"
+          xmlns="https://www.w3.org/2000/svg"
+          class="IconDefaultProfileLogo"
+        >
+          <mask
+            id="mask0"
+            maskUnits="userSpaceOnUse"
+            x="0"
+            y="0"
+            width="28"
+            height="28"
+            style="mask-type: alpha"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M18.6375 13.5625C20.6063 12.2062 21.875 9.975 21.875 7.4375C21.875 3.325 18.55 0 14.4375 0C10.325 0 7 3.325 7 7.4375C7 9.975 8.26875 12.2062 10.2375 13.5625C6.34375 14.7875 3.5 18.4625 3.5 22.75V28H25.375V22.75C25.375 18.4625 22.5312 14.7875 18.6375 13.5625Z"
+              fill="#347BBE"
+            ></path>
+          </mask>
+          <g mask="url(#mask0)">
+            <circle cx="14.5" cy="11.5" r="15.5" fill="#C4C4C4"></circle>
+          </g>
+        </svg>
+      </figure>
+      <div id="blocoInformacoesCliente">
+        <span
+          ><span class="strong">ENTRE</span> ou <br /><span class="strong"
+            >CADASTRE-SE</span
+          ></span
+        >
+      </div>
+    </div>
   </header>
-  <div
-    class="content"
-    [ngStyle]="{
-      transform:
-        windowWidth <= 500
-          ? reg
-            ? 'rotateX(180deg)'
-            : 'rotateX(0deg)'
-          : reg
-          ? 'rotateY(180deg)'
-          : 'rotateY(0deg)'
-    }"
-  >
-    <div class="loginpage">
-      <div class="card">
+  <div class="content">
+    <div class="loginpage page" id="loginpage">
+      <div class="card" id="card-login">
         <h1 class="title">ACESSE SUA CONTA</h1>
         <div class="form">
           <div class="input-container">
-            <input type="email" id="email" required="" />
+            <input type="text" id="email" autocomplete="off" required="true" />
             <label for="email" class="label">Email</label>
             <div class="underline"></div>
           </div>
           <div class="input-container">
-            <input type="password" id="senha" required="" />
+            <input
+              type="password"
+              id="senha"
+              autocomplete="off"
+              required="true"
+            />
             <label for="senha" class="label">Senha</label>
             <div class="underline"></div>
           </div>
@@ -98,8 +133,12 @@
           </div>
         </div>
       </div>
-      <div class="vertical-line horizontal-line"><span>OU</span></div>
-      <div class="card">
+      <div class="vertical-line horizontal-line">
+        <div class="line" id="line-1"></div>
+        <span id="text-ou">OU</span>
+        <div class="line" id="line-2"></div>
+      </div>
+      <div class="card" id="card-acesso-redes-sociais">
         <h1 class="subtitle">Quero acessar com minhas redes sociais</h1>
         <div class="form">
           <div
@@ -173,6 +212,130 @@
         </div>
       </div>
     </div>
+    <div class="registerpage page" id="registerpage">
+      <div class="card" id="card-register">
+        <h1 class="title">CRIAR CONTA</h1>
+        <div class="form">
+          <div class="input-container">
+            <input
+              type="text"
+              id="nome-completo"
+              autocomplete="off"
+              required="true"
+            />
+            <label for="nome-completo" class="label">Nome Completo*</label>
+            <div class="underline"></div>
+          </div>
+          <div class="input-container">
+            <input type="cpf" id="cpf" autocomplete="off" required="true" />
+            <label for="cpf" class="label">CPF ou CNPJ*</label>
+            <div class="underline"></div>
+          </div>
+          <div class="input-container">
+            <input
+              type="date"
+              id="data-nascimento"
+              autocomplete="off"
+              required="true"
+            />
+            <label for="data-nascimento" class="label"
+              >Data de Nascimento*</label
+            >
+            <div class="underline"></div>
+          </div>
+          <div class="input-container">
+            <input
+              type="tel"
+              id="telefone"
+              autocomplete="off"
+              required="true"
+            />
+            <label for="telefone" class="label">Telefone Celular*</label>
+            <div class="underline"></div>
+          </div>
+          <div class="input-container">
+            <input
+              type="text"
+              id="email-register"
+              autocomplete="off"
+              required="true"
+            />
+            <label for="email-register" class="label">Email*</label>
+            <div class="underline"></div>
+          </div>
+          <div class="input-container">
+            <input
+              type="password"
+              id="senha-register"
+              autocomplete="off"
+              required="true"
+            />
+            <label for="senha-register" class="label">Senha*</label>
+            <div class="underline"></div>
+          </div>
+          <div class="input-container">
+            <input
+              type="password"
+              id="confirm-senha-register"
+              autocomplete="off"
+              required="true"
+            />
+            <label for="confirm-senha-register" class="label"
+              >Confirme sua Senha*</label
+            >
+            <div class="underline"></div>
+          </div>
+          <div class="input-container">
+            <span
+              style="
+                width: 100%;
+                font-size: 0.8rem;
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                gap: 5px;
+              "
+            >
+              <input
+                class="checkmark"
+                type="checkbox"
+                name="termos"
+                id="termos"
+              />
+              <label class="checkbox" for="termos"
+                >Li e estou de acordo com as
+                <a href="">políticas da empresa e políticas de privacidade.*</a>
+              </label>
+            </span>
+          </div>
+          <div
+            class="button-container"
+            style="display: flex; flex-direction: column"
+          >
+            <button class="btn btn-primary content-text">
+              <span
+                style="
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                "
+              >
+                <span style="margin-left: 8px">CONTINUAR</span>
+              </span>
+            </button>
+            <span style="width: 264px; text-align: end">
+              <button
+                (click)="loginPageVisible()"
+                class="text-derecoration-line"
+                style="margin-top: 5px; font-size: 0.8rem"
+              >
+                Já tenho conta
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <footer></footer>
 </div>
@@ -181,7 +344,7 @@
   <div class="dialog-content">
     <span>Informe seu número do CPF ou CNPJ de cadastro:</span>
     <div class="input-container" style="width: 100%">
-      <input type="text" id="cpfOrCnpj" required="" />
+      <input type="text" id="cpfOrCnpj" autocomplete="off" required="true" />
       <label for="cpfOrCnpj" class="label">CPF ou CNPJ</label>
       <div class="underline"></div>
     </div>
