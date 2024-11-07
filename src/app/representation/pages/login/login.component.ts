@@ -64,10 +64,10 @@ export class LoginComponent {
       document.getElementById('loginpage')!.style.zIndex = '0';
       setTimeout(() => {
         if (this.windowWidth > 500) {
-          document.getElementById('card-login')!.style.marginLeft = '0px';
+          document.getElementById('card-login')!.style.marginLeft = '3%';
           document.getElementById(
             'card-acesso-redes-sociais'
-          )!.style.marginRight = '0px';
+          )!.style.marginRight = '3%';
         } else {
           document.getElementById('card-login')!.style.marginLeft = '10px';
           document.getElementById(
