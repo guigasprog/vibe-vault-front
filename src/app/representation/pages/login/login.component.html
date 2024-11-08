@@ -331,17 +331,26 @@
 >
   <div class="dialog-content">
     <div class="form" style="display: flex; flex-wrap: wrap">
-      <div class="input-container" style="width: 140px">
+      <div
+        class="input-container"
+        style="width: '{{ windowWidth < 500 ? '' : '140px' }}'"
+      >
         <input type="text" id="cep" autocomplete="off" required="true" />
         <label for="cep" class="label">CEP*</label>
         <div class="underline"></div>
       </div>
-      <div class="input-container" style="width: 240px">
+      <div
+        class="input-container"
+        style="width: '{{ windowWidth < 500 ? '' : '240px' }}'"
+      >
         <input type="text" id="logradouro" autocomplete="off" required="true" />
         <label for="logradouro" class="label">Logradouro*</label>
         <div class="underline"></div>
       </div>
-      <div class="input-container" style="width: 100px">
+      <div
+        class="input-container"
+        style="width: '{{ windowWidth < 500 ? '' : '100px' }}'"
+      >
         <input
           type="text"
           id="numero"
@@ -357,7 +366,10 @@
         <label for="cidade" class="label">Cidade*</label>
         <div class="underline"></div>
       </div>
-      <div class="input-container" style="width: 100px">
+      <div
+        class="input-container"
+        style="width: '{{ windowWidth < 500 ? '' : '100px' }}'"
+      >
         <input
           type="text"
           id="estado"
@@ -373,7 +385,10 @@
         <label for="bairro" class="label">Bairro*</label>
         <div class="underline"></div>
       </div>
-      <div class="input-container" style="width: 70%">
+      <div
+        class="input-container"
+        style="width: '{{ windowWidth < 500 ? '' : '70%' }}'"
+      >
         <input
           type="text"
           id="complemento"

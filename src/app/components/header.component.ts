@@ -9,6 +9,7 @@ import { routes } from '../app.routes';
   imports: [NgIf],
   template: ` <header>
     <div
+      (click)="navigateToThePrincipalPage()"
       class="logo"
       style="width: {{
         router.routerState.snapshot.url !== '/login' && width < 500
@@ -88,6 +89,7 @@ import { routes } from '../app.routes';
         margin: 0 auto;
 
         .logo {
+          cursor: pointer;
           width: 15%;
           text-align: center;
           .sub-title {
@@ -150,6 +152,10 @@ export class HeaderComponent {
   constructor(public router: Router) {}
 
   width = innerWidth;
+
+  navigateToThePrincipalPage() {
+    this.router.navigateByUrl('/');
+  }
 
   navigateToTheLoginPage() {
     this.router.navigateByUrl('/login');
