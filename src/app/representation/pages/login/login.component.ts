@@ -11,6 +11,7 @@ import { NgStyle } from '@angular/common';
 })
 export class LoginComponent {
   isDialogVisible: boolean = false;
+  isDialogEnderecoVisible: boolean = false;
 
   reg: boolean = false;
 

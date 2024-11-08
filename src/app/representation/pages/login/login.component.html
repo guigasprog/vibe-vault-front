@@ -1,50 +1,4 @@
 <div class="container-100vw">
-  <header>
-    <div class="logo">
-      <h1 class="title">Vibe Vault</h1>
-      <h3 class="title sub-title">Store Website</h3>
-    </div>
-    <div class="vazio"></div>
-    <div class="bloco">
-      <figure id="blocoAvatarUsuario">
-        <svg
-          width="28"
-          height="28"
-          viewBox="0 0 28 28"
-          fill="none"
-          xmlns="https://www.w3.org/2000/svg"
-          class="IconDefaultProfileLogo"
-        >
-          <mask
-            id="mask0"
-            maskUnits="userSpaceOnUse"
-            x="0"
-            y="0"
-            width="28"
-            height="28"
-            style="mask-type: alpha"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M18.6375 13.5625C20.6063 12.2062 21.875 9.975 21.875 7.4375C21.875 3.325 18.55 0 14.4375 0C10.325 0 7 3.325 7 7.4375C7 9.975 8.26875 12.2062 10.2375 13.5625C6.34375 14.7875 3.5 18.4625 3.5 22.75V28H25.375V22.75C25.375 18.4625 22.5312 14.7875 18.6375 13.5625Z"
-              fill="#347BBE"
-            ></path>
-          </mask>
-          <g mask="url(#mask0)">
-            <circle cx="14.5" cy="11.5" r="15.5" fill="#C4C4C4"></circle>
-          </g>
-        </svg>
-      </figure>
-      <div id="blocoInformacoesCliente">
-        <span
-          ><span class="strong">ENTRE</span> ou <br /><span class="strong"
-            >CADASTRE-SE</span
-          ></span
-        >
-      </div>
-    </div>
-  </header>
   <div class="content">
     <div class="loginpage page" id="loginpage">
       <div class="card" id="card-login">
@@ -312,7 +266,10 @@
             class="button-container"
             style="display: flex; flex-direction: column"
           >
-            <button class="btn btn-primary content-text">
+            <button
+              class="btn btn-primary content-text"
+              (click)="isDialogEnderecoVisible = true"
+            >
               <span
                 style="
                   display: flex;
@@ -362,6 +319,85 @@
     <button class="btn btn-primary content-text" (click)="closeDialog()">
       <span style="display: flex; justify-content: center; align-items: center"
         >ENVIAR</span
+      >
+    </button>
+  </div>
+</vv-dialog>
+
+<vv-dialog
+  header="INFORME SEU ENDEREÇO"
+  [width]="'1000px'"
+  [(visible)]="isDialogEnderecoVisible"
+>
+  <div class="dialog-content">
+    <div class="form" style="display: flex; flex-wrap: wrap">
+      <div class="input-container" style="width: 140px">
+        <input type="text" id="cep" autocomplete="off" required="true" />
+        <label for="cep" class="label">CEP*</label>
+        <div class="underline"></div>
+      </div>
+      <div class="input-container" style="width: 240px">
+        <input type="text" id="logradouro" autocomplete="off" required="true" />
+        <label for="logradouro" class="label">Logradouro*</label>
+        <div class="underline"></div>
+      </div>
+      <div class="input-container" style="width: 100px">
+        <input
+          type="text"
+          id="numero"
+          autocomplete="off"
+          required="true"
+          maxlength="4"
+        />
+        <label for="numero" class="label">Número</label>
+        <div class="underline"></div>
+      </div>
+      <div class="input-container">
+        <input type="text" id="cidade" autocomplete="off" required="true" />
+        <label for="cidade" class="label">Cidade*</label>
+        <div class="underline"></div>
+      </div>
+      <div class="input-container" style="width: 100px">
+        <input
+          type="text"
+          id="estado"
+          autocomplete="off"
+          required="true"
+          maxlength="2"
+        />
+        <label for="estado" class="label">Estado*</label>
+        <div class="underline"></div>
+      </div>
+      <div class="input-container">
+        <input type="text" id="bairro" autocomplete="off" required="true" />
+        <label for="bairro" class="label">Bairro*</label>
+        <div class="underline"></div>
+      </div>
+      <div class="input-container" style="width: 70%">
+        <input
+          type="text"
+          id="complemento"
+          autocomplete="off"
+          required="true"
+        />
+        <label for="complemento" class="label">Complemento</label>
+        <div class="underline"></div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    footer
+    style="
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    "
+  >
+    <button class="btn btn-primary content-text" (click)="closeDialog()">
+      <span style="display: flex; justify-content: center; align-items: center"
+        >CRIAR</span
       >
     </button>
   </div>

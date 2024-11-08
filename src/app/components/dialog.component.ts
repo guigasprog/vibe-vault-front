@@ -7,7 +7,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   imports: [NgClass, NgIf],
   template: `
     <div class="dialog-backdrop" *ngIf="visible" (click)="closeModal()"></div>
-    <div class="dialog" *ngIf="visible">
+    <div class="dialog" *ngIf="visible" style="max-width: {{ width }};">
       <div class="dialog-header">
         <h3 class="title">{{ header }}</h3>
         <span class="dialog-close" (click)="closeModal()">&times;</span>
@@ -36,7 +36,6 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
         left: 50%;
         transform: translate(-50%, -50%);
         width: 90%;
-        max-width: 500px;
         background: #3a3a3a;
         border: 0;
         border-radius: 8px;
@@ -69,6 +68,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class DialogComponent {
   @Input() header: string = '';
   @Input() visible: boolean = false;
+  @Input() width: string = '500px';
   @Output() visibleChange = new EventEmitter<boolean>();
 
   closeModal() {
